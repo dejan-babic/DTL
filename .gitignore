@@ -1,3 +1,6 @@
+# Build distributions
+dist/
+
 # Bower files
 libs/
 
