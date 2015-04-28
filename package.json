@@ -1,0 +1,22 @@
+{
+  "name": "DTL",
+  "version": "0.0.0",
+  "description": "Angular bookstore",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dejan-babic/DTL.git"
+  },
+  "author": "Dejan Babic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dejan-babic/DTL/issues"
+  },
+  "homepage": "https://github.com/dejan-babic/DTL",
+  "dependencies": {
+    "bower": "^1.4.1"
+  }
+}
