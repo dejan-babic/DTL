@@ -1,3 +1,6 @@
+# Bower files
+libs/
+
 #PHP Storm files
 .idea/
 
