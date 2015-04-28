@@ -1,3 +1,9 @@
+#PHP Storm files
+.idea/
+
+# Node dependecies
+node_modules
+
 # Logs
 logs
 *.log
