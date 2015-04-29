@@ -10,7 +10,7 @@ dtl.controller('splashCtrl', function(){
 	function init () {
 		vm.initMessage = "Loading from here";
 	}
-	
+
 	init();
 
 });
