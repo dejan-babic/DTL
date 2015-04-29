@@ -8,14 +8,14 @@ var dtl = angular.module('dtl', [
 		"ng.deviceDetector"
 	])
 	.config(function ($routeProvider) {
-		$routeProvider.when("/Home", {
+		$routeProvider.when("/home", {
 			templateUrl: "app/homepage/templates/views/home.html"
 		});
-		$routeProvider.otherwise({ redirectTo: '/Home' });
+		$routeProvider.when("/init", {
+			templateUrl: "app/splashscreen/templates/views/splash.html"
+		});
+		$routeProvider.otherwise({ redirectTo: '/init' });
 	})
 	.config(function ($logProvider) {
 		$logProvider.debugEnabled(true);
-	})
-	.config(function ($locationProvider) {
-		$locationProvider.html5Mode(true);
 	})
