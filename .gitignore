@@ -1,3 +1,6 @@
+# Compiled css files
+css/dtl-main.css
+
 # Build distributions
 dist/
 
