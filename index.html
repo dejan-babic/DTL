@@ -2,29 +2,34 @@
 <html ng-app="dtl">
 <head>
 	<title>DTL</title>
+	<meta charset="utf-8">
+	<base href="/">
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css"/>
 	<link rel="stylesheet" href="css/dtl-main.css"/>
 </head>
 <body ng-controller="mainCtrl">
-<div class="container-fluid">
-	<ng-view></ng-view>
-</div>
 
-<!--Frontend dependencies min-->
-<script src="libs/jquery/dist/jquery.js"></script>
-<script src="libs/angular/angular.js"></script>
-<script src="libs/angular-route/angular-route.js"></script>
-<script src="libs/bootstrap/dist/js/bootstrap.js"></script>
-<!--Frontend dependencies min END-->
+	<!--Render views from router-->
+	<div class="container-fluid">
+		<ng-view></ng-view>
+	</div>
+	<!--Render views from router END-->
 
-<!--Third party libs-->
-<script src="libs/ng-device-detector/ng-device-detector.js"></script>
-<!--Third party libs END-->
+	<!--Frontend dependencies-->
+	<script src="libs/jquery/dist/jquery.js"></script>
+	<script src="libs/angular/angular.js"></script>
+	<script src="libs/angular-route/angular-route.js"></script>
+	<script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+	<!--Frontend dependencies END-->
 
-<!--Angular app files-->
-<script src="app/app.js"></script>
-<script src="app/core/mainCtrl.js"></script>
-<!--Angular app files END-->
+	<!--Third party libs-->
+	<script src="libs/ng-device-detector/ng-device-detector.js"></script>
+	<!--Third party libs END-->
+
+	<!--Angular app files-->
+	<script src="app/app.js"></script>
+	<script src="app/core/mainCtrl.js"></script>
+	<!--Angular app files END-->
 
 </body>
 </html>

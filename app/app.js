@@ -15,4 +15,7 @@ var dtl = angular.module('dtl', [
 	})
 	.config(function ($logProvider) {
 		$logProvider.debugEnabled(true);
-	});
+	})
+	.config(function ($locationProvider) {
+		$locationProvider.html5Mode(true);
+	})
