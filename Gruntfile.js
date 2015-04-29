@@ -1,11 +1,9 @@
 module.exports = function (grunt) {
-
 	require("matchdep").filter("grunt-*").forEach(grunt.loadNpmTasks);
 
 	grunt.initConfig({
 
 		pkg: grunt.file.readJSON('package.json'),
-
 		mkdirs: {
 			local: ['dist/local']
 		},
@@ -16,12 +14,18 @@ module.exports = function (grunt) {
 			local: {
 				files: [
 					{ expand: true, cwd: '', src: ['app/**', 'templates/**'], dest: 'dist/local' },
-					{ expand: true, cwd: 'libs', src: ['angular/angular.min.js'], dest: 'dist/local/libs' },
-					{ expand: true, cwd: 'libs', src: ['angular-route/angular-route.min.js'], dest: 'dist/local/libs' },
-					{ expand: true, cwd: 'libs', src: ['jquery/dist/jquery.min.js'], dest: 'dist/local/libs' },
-					{ expand: true, cwd: 'libs', src: ['bootstrap/dist/js/bootstrap.min.js'], dest: 'dist/local/libs' },
-					{ expand: true, cwd: 'libs', src: ['bootstrap/dist/css/bootstrap.min.css'], dest: 'dist/local/libs' },
+					{ expand: true, cwd: 'libs', src: ['angular/angular.js'], dest: 'dist/local/libs' },
+					{ expand: true, cwd: 'libs', src: ['angular-route/angular-route.js'], dest: 'dist/local/libs' },
+					{ expand: true, cwd: 'libs', src: ['jquery/dist/jquery.js'], dest: 'dist/local/libs' },
+					{ expand: true, cwd: 'libs', src: ['bootstrap/dist/js/bootstrap.js'], dest: 'dist/local/libs' },
+					{ expand: true, cwd: 'libs', src: ['bootstrap/dist/css/bootstrap.css'], dest: 'dist/local/libs' },
+					{ expand: true, cwd: 'libs', src: ['ng-device-detector/ng-device-detector.js'], dest: 'dist/local/libs' },
 					{ expand: true, cwd: '', src: ['index.html'], dest: 'dist/local' },
+				]
+			},
+			deployLocal: {
+				files: [
+					{ expand: true, cwd: 'dist/local', src: ['**'], dest: '../../wamp/www/DTL' },
 				]
 			}
 		}
@@ -34,6 +38,6 @@ module.exports = function (grunt) {
 		});
 	});
 
-	grunt.registerTask('local', ['clean:local', 'mkdirs:local', 'copy:local']);
+	grunt.registerTask('local', ['clean:local', 'mkdirs:local', 'copy:local', 'copy:deployLocal']);
 
 };

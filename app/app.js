@@ -1,11 +1,15 @@
 "use strict";
 
+/**
+ * Definition of the app basic configuration
+ */
 var dtl = angular.module('dtl', [
-		"ngRoute"
+		"ngRoute",
+		"ng.deviceDetector"
 	])
 	.config(function ($routeProvider) {
 		$routeProvider.when("/Home", {
-			templateUrl: "templates/views/home.html"
+			templateUrl: "app/homepage/templates/views/home.html"
 		});
 		$routeProvider.otherwise({ redirectTo: '/Home' });
 	})
