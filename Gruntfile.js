@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 		copy: {
 			buildLocal: {
 				files: [
-					{ expand: true, cwd: '', src: ['app/**', 'templates/**'], dest: 'dist/local' },
+					{ expand: true, cwd: '', src: ['app/**', 'assets/**'], dest: 'dist/local' },
 					{ expand: true, cwd: 'libs', src: ['angular/angular.js'], dest: 'dist/local/libs' },
 					{ expand: true, cwd: 'libs', src: ['angular-route/angular-route.js'], dest: 'dist/local/libs' },
 					{ expand: true, cwd: 'libs', src: ['jquery/dist/jquery.js'], dest: 'dist/local/libs' },
