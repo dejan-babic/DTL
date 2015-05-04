@@ -3,11 +3,11 @@
 /**
  * Stores some of the core and shared functionality
  */
-dtl.controller("mainCtrl", ["$scope", "deviceDetector", function ($scope, deviceDetector) {
+dtl.controller("mainCtrl", ["$scope", "deviceDetector", function ($scope, $location) {
 
-	function init () {
-		$scope.browserSupported = (deviceDetector.browser === "chrome");
-	}
+	$scope.goToRoute = function (route) {
+		$log.debug("mainCtrl:goToRoute()");
+		$location.path(route);
+	};
 
-	init();
 }]);
