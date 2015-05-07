@@ -5,9 +5,10 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css"/>
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css.map"/>
+	<link rel="stylesheet" href="libs/spinkit/css/spinners/3-wave.css"/>
 	<link rel="stylesheet" href="css/dtl-main.css"/>
 </head>
-<body ng-controller="mainCtrl">
+<body ng-controller="mainCtrl" dtl-spinner ng-cloak>
 
 	<!--Render views from router-->
 	<div class="container-fluid">
@@ -30,6 +31,8 @@
 	<script src="app/app.js"></script>
 	<script src="app/core/mainCtrl.js"></script>
 	<script src="app/splashscreen/splashCtrl.js"></script>
+	<script src="app/dtlSpinner/directives/dtlSpinnerDirective.js"></script>
+	<script src="app/dtlSpinner/services/dtlSpinnerService.js"></script>
 	<!--Angular app files END-->
 
 </body>

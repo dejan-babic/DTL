@@ -21,6 +21,7 @@ module.exports = function (grunt) {
 					{ expand: true, cwd: 'libs', src: ['bootstrap/dist/css/bootstrap.css'], dest: 'dist/local/libs' },
 					{ expand: true, cwd: 'libs', src: ['bootstrap/dist/css/bootstrap.css.map'], dest: 'dist/local/libs' },
 					{ expand: true, cwd: 'libs', src: ['ng-device-detector/ng-device-detector.js'], dest: 'dist/local/libs' },
+					{ expand: true, cwd: 'libs', src: ['spinkit/css/spinners/3-wave.css'], dest: 'dist/local/libs' },
 					{ expand: true, cwd: 'css', src: ['dtl-main.css'], dest: 'dist/local/css' },
 					{ expand: true, cwd: '', src: ['index.html'], dest: 'dist/local' },
 				]
