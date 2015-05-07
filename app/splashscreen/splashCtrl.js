@@ -3,7 +3,7 @@
 /**
  * Do basic system check before going to home screen
  */
-dtl.controller('splashCtrl', function($log, $q, deviceDetector){
+dtl.controller('splashCtrl', ['$log', '$q', 'deviceDetector', 'dtlSpinner', function($log, $q, deviceDetector, dtlSpinner){
 	//TODO [DB] Get all values from config/labels
 
 	var vm = this;
@@ -26,7 +26,7 @@ dtl.controller('splashCtrl', function($log, $q, deviceDetector){
 
 	function checkClientAgent () {
 		$log.debug("splashCtrl:checkClientAgent()");
-		setInitMessage(INIT_CHECK.BROWSER_CHECK);
+		dtlSpinner.start(INIT_CHECK.BROWSER_CHECK);
 		var deferred = $q.defer();
 		deviceDetector.browser === "chrome" ? deferred.resolve() : deferred.reject(SYS_ERROR.BROWSER_SUPPORT);
 		return deferred.promise;
@@ -34,14 +34,20 @@ dtl.controller('splashCtrl', function($log, $q, deviceDetector){
 
 	function checkConnectivity () {
 		$log.debug("splashCtrl:checkConnectivity()");
-		setInitMessage(INIT_CHECK.CONN_CHECK);
+		dtlSpinner.update(INIT_CHECK.CONN_CHECK);
 		var deferred = $q.defer();
+		deferred.resolve();
 		return deferred.promise;
 	}
 
 	function handleSystemCheckFail (reason) {
 		$log.debug("splashCtrl:handleSystemCheckFail()");
 		$log.debug(reason);
+		dtlSpinner.stop();
+	}
+
+	function wrapUpAndGoHome () {
+		dtlSpinner.stop();
 	}
 
 	// Goes through check procedures
@@ -50,8 +56,9 @@ dtl.controller('splashCtrl', function($log, $q, deviceDetector){
 		checkClientAgent()
 			.then(checkConnectivity)
 			.catch(handleSystemCheckFail)
+			.finally(wrapUpAndGoHome)
 	}
 
 	// Start the show
 	init();
-});
+}]);
