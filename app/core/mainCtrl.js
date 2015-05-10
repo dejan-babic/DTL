@@ -1,13 +1,15 @@
-"use strict";
+(function(){
+	"use strict";
 
-/**
- * Stores some of the core and shared functionality
- */
-dtl.controller('mainCtrl', ['$scope', 'deviceDetector', function ($scope, $location) {
+	/**
+	 * Stores some of the core and shared functionality
+	 */
+	angular.module('dtl')
+		.controller('mainCtrl', mainCtrl);
 
-	$scope.goToRoute = function (route) {
-		$log.debug('mainCtrl:goToRoute()');
-		$location.path(route);
-	};
+	mainCtrl.$inject = ['$scope'];
 
-}]);
+	function mainCtrl() {
+		var vm = this;
+	}
+})();
