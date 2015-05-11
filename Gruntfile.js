@@ -5,33 +5,30 @@ module.exports = function (grunt) {
 
 		pkg: grunt.file.readJSON('package.json'),
 		mkdirs: {
-			local: ['dist/local']
+			noService: ['dist/noService']
 		},
 		clean: {
-			local: ['dist']
+			noService: ['dist']
 		},
 		copy: {
-			buildLocal: {
+			buildNoService: {
 				files: [
-					{ expand: true, cwd: '', src: ['app/**', 'templates/**'], dest: 'dist/local' },
-					{ expand: true, cwd: 'libs', src: ['angular/angular.js'], dest: 'dist/local/libs' },
-					{ expand: true, cwd: 'libs', src: ['angular-route/angular-route.js'], dest: 'dist/local/libs' },
-					{ expand: true, cwd: 'libs', src: ['jquery/dist/jquery.js'], dest: 'dist/local/libs' },
-					{ expand: true, cwd: 'libs', src: ['bootstrap/dist/js/bootstrap.js'], dest: 'dist/local/libs' },
-					{ expand: true, cwd: 'libs', src: ['bootstrap/dist/css/bootstrap.css'], dest: 'dist/local/libs' },
-					{ expand: true, cwd: 'libs', src: ['ng-device-detector/ng-device-detector.js'], dest: 'dist/local/libs' },
-					{ expand: true, cwd: 'css', src: ['dtl-main.css'], dest: 'dist/local/css' },
-					{ expand: true, cwd: '', src: ['index.html'], dest: 'dist/local' },
-				]
-			},
-			deployLocal: {
-				files: [
-					{ expand: true, cwd: 'dist/local', src: ['**'], dest: '../../wamp/www/DTL' },
+					{ expand: true, cwd: '', src: ['app/**', 'assets/**'], dest: 'dist/noService' },
+					{ expand: true, cwd: 'libs', src: ['angular/angular.js'], dest: 'dist/noService/libs' },
+					{ expand: true, cwd: 'libs', src: ['angular-route/angular-route.js'], dest: 'dist/noService/libs' },
+					{ expand: true, cwd: 'libs', src: ['jquery/dist/jquery.js'], dest: 'dist/noService/libs' },
+					{ expand: true, cwd: 'libs', src: ['bootstrap/dist/js/bootstrap.js'], dest: 'dist/noService/libs' },
+					{ expand: true, cwd: 'libs', src: ['bootstrap/dist/css/bootstrap.css'], dest: 'dist/noService/libs' },
+					{ expand: true, cwd: 'libs', src: ['bootstrap/dist/css/bootstrap.css.map'], dest: 'dist/noService/libs' },
+					{ expand: true, cwd: 'libs', src: ['ng-device-detector/ng-device-detector.js'], dest: 'dist/noService/libs' },
+					{ expand: true, cwd: 'libs', src: ['spinkit/css/spinners/3-wave.css'], dest: 'dist/noService/libs' },
+					{ expand: true, cwd: 'css', src: ['dtl-main.css'], dest: 'dist/noService/css' },
+					{ expand: true, cwd: '', src: ['index.html'], dest: 'dist/noService' },
 				]
 			}
 		},
 		less: {
-			local: {
+			noService: {
 				files: {
 					'css/dtl-main.css': 'css/dtl-main.less'
 				}
@@ -46,6 +43,6 @@ module.exports = function (grunt) {
 		});
 	});
 
-	grunt.registerTask('local', ['less:local', 'clean:local', 'mkdirs:local', 'copy:buildLocal', 'copy:deployLocal']);
+	grunt.registerTask('noService', ['less:noService', 'clean:noService', 'mkdirs:noService', 'copy:buildNoService']);
 
 };
