@@ -1,6 +1,9 @@
 (function(){
 	'use strict';
 
+	/**
+	 * Inserts the template for the spinner and initializes the spinner service
+	 */
 	angular.module('dtl')
 		.directive('dtlSpinner', dtlSpinner);
 

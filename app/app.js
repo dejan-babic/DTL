@@ -1,5 +1,5 @@
 (function(){
-	"use strict";
+	'use strict';
 
 	/**
 	 * Definition of the app & basic configuration

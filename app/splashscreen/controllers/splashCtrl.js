@@ -1,5 +1,5 @@
 (function(){
-	"use strict";
+	'use strict';
 
 	/**
 	 * Do basic system check before going to home screen
@@ -20,7 +20,6 @@
 			BROWSER: "Checking browser compatibility"
 		};
 
-		// Start the show
 		init();
 
 		function checkDevice () {
@@ -45,7 +44,6 @@
 			goTo.home();
 		}
 
-		// Goes through check procedures
 		function init () {
 			$log.debug("splashCtrl:init()");
 			checkDevice()

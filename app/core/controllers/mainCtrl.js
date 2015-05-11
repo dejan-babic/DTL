@@ -1,5 +1,5 @@
 (function(){
-	"use strict";
+	'use strict';
 
 	/**
 	 * Stores some of the core and shared functionality
@@ -12,4 +12,5 @@
 	function mainCtrl() {
 		var vm = this;
 	}
+
 })();
