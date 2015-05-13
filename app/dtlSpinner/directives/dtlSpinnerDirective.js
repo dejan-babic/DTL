@@ -14,8 +14,8 @@
 			restrict: 'A',
 			templateUrl: 'app/dtlSpinner/templates/directives/dtlSpinner.html',
 			transclude: true,
-			link: function () {
-				dtlSpinner.init();
+			link: function (scope, element) {
+				dtlSpinner.init(element);
 			},
 			controller: function ($scope) {
 				$scope.$watch(function () {return dtlSpinner.message()}, function (newVal, oldVal) {

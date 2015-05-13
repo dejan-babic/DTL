@@ -43,11 +43,12 @@
 			return message;
 		}
 
-		function init() {
+		function init(element) {
 			$log.debug('dtlSpinner:init()');
-			container = $document.find('#dtlSpinner');
-			if (!container.length > 0) {
-				throw "dtlSpinner template not found";
+			container = element.find('#dtlSpinner');
+			if (container.length === 0) {
+				$log.debug('dtlSpinner:init() failed. Spinner with ID dtlSpinner not found');
+				//TODO [DB] Notify user
 			} else {
 				initialized = true;
 			}

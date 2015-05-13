@@ -15,14 +15,15 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+	  'libs/jquery/dist/jquery.js',
       'libs/angular/angular.js',
       'libs/angular-mocks/angular-mocks.js',
       'libs/angular-route/angular-route.js',
-	  'libs/jquery/dist/jquery.js',
 	  'libs/bootstrap/dist/js/bootstrap.js',
 	  'libs/ng-device-detector/ng-device-detector.js',
 	  'app/*js',
-	  'app/**/**/*js'
+	  'app/**/**/*js',
+	  'app/dtlSpinner/templates/directives/dtlSpinner.html'
     ],
 
 
@@ -34,6 +35,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+	    'app/dtlSpinner/templates/directives/dtlSpinner.html': ['ng-html2js']
     },
 
 
