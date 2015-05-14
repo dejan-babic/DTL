@@ -7,13 +7,12 @@
 	angular.module('dtl')
 		.factory('dtlSpinner', dtlSpinner);
 
-	dtlSpinner.$inject = ['$log', '$document'];
+	dtlSpinner.$inject = ['$log'];
 
-	function dtlSpinner($log, $document) {
+	function dtlSpinner($log) {
 
-		var container = false;
+		var container;
 		var message = '';
-		var initialized = false;
 
 		return {
 			init: init,
@@ -40,18 +39,22 @@
 		}
 
 		function getMessage() {
+			$log.debug('dtlSpinner:getMessage()');
 			return message;
 		}
 
 		function init(element) {
+			var initSuccess = false;
 			$log.debug('dtlSpinner:init()');
 			container = element.find('#dtlSpinner');
 			if (container.length === 0) {
 				$log.debug('dtlSpinner:init() failed. Spinner with ID dtlSpinner not found');
+				initSuccess = false;
 				//TODO [DB] Notify user
 			} else {
-				initialized = true;
+				initSuccess = true;
 			}
+			return initSuccess;
 		}
 	}
 
