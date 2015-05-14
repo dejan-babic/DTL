@@ -5,11 +5,11 @@
 	 * Used to navigate route endpoints of the app
 	 */
 	angular.module('dtl')
-		.factory('goTo', goTo);
+		.factory('dtlGoTo', dtlGoTo);
 
-	goTo.$inject = ['$log', '$location'];
+	dtlGoTo.$inject = ['$log', '$location'];
 
-	function goTo($log, $location) {
+	function dtlGoTo($log, $location) {
 
 		var ROUTES = {
 			HOME: 'Home'
@@ -21,12 +21,12 @@
 		};
 
 		function home() {
-			$log.debug('goTo:home()');
+			$log.debug('dtlGoTo:home()');
 			$location.path(ROUTES.HOME);
 		}
 
 		function somewhere(route) {
-			$log.debug('goTo:somewhere()');
+			$log.debug('dtlGoTo:somewhere()');
 			$location.path(route);
 		}
 	}
