@@ -1,6 +1,6 @@
-describe('gotoService', function() {
+describe('dtlGoToService', function() {
 
-	var goTo, $location, $route;
+	var dtlGoTo, $location, $route;
 	var ROUTES = {
 		HOME: '/Home',
 		LOAD: '/Load',
@@ -10,23 +10,25 @@ describe('gotoService', function() {
 	//noinspection JSUnresolvedFunction
 	beforeEach(module('dtl'));
 	//noinspection JSUnresolvedFunction
-	beforeEach(inject(function(_goTo_, _$location_, _$route_){
-		goTo = _goTo_;
+	beforeEach(inject(function(_dtlGoTo_, _$location_, _$route_){
+		dtlGoTo = _dtlGoTo_;
 		$location = _$location_;
 		$route = _$route_;
 	}));
 
 	it('should exist', function() {
-		expect(goTo).toBeDefined();
+		expect(dtlGoTo).toBeDefined();
 	});
 
 	it('should set $location.path to ' + ROUTES.HOME + ' when home() is called', function() {
-		goTo.home();
+		dtlGoTo.home();
+		//noinspection JSCheckFunctionSignatures
 		expect($location.path()).toEqual(ROUTES.HOME);
 	});
 
 	it('should set $location.path to any given route when somewhere() is called', function() {
-		goTo.somewhere(ROUTES.FAKE);
+		dtlGoTo.somewhere(ROUTES.FAKE);
+		//noinspection JSCheckFunctionSignatures
 		expect($location.path()).toEqual(ROUTES.FAKE);
 	});
 
