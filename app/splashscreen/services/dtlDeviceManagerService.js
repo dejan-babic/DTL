@@ -5,11 +5,11 @@
 	 * Used to do app compatibility tests
 	 */
 	angular.module('dtl').
-		factory('deviceManager', deviceManager);
+		factory('dtlDeviceManager', dtlDeviceManager);
 
-	deviceManager.$inject = ['$log', '$q', 'deviceDetector'];
+	dtlDeviceManager.$inject = ['$log', '$q', 'deviceDetector'];
 
-	function deviceManager($log, $q, deviceDetector) {
+	function dtlDeviceManager($log, $q, deviceDetector) {
 
 		return {
 			checkDevice: checkDevice,
@@ -17,7 +17,7 @@
 		};
 
 		function checkDevice() {
-			$log.debug('deviceManager:checkDevice()');
+			$log.debug('dtlDeviceManager:checkDevice()');
 			var deferred = $q.defer();
 			if (deviceDetector.isDesktop()) {
 				deferred.resolve()
@@ -29,7 +29,7 @@
 		}
 
 		function checkUserAgent() {
-			$log.debug('deviceManager:checkUserAgent()');
+			$log.debug('dtlDeviceManager:checkUserAgent()');
 			var deferred = $q.defer();
 			deviceDetector.browser === "chrome" ? deferred.resolve() : deferred.reject('Browser not supported'); //TODO [DB] Move msg to SYS ERRORS
 			return deferred.promise;

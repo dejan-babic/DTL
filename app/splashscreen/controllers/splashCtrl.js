@@ -7,9 +7,9 @@
 	angular.module('dtl')
 		.controller('splashCtrl', splashCtrl);
 
-	splashCtrl.$inject = ['$log', 'deviceManager', 'dtlSpinner', 'dtlGoTo'];
+	splashCtrl.$inject = ['$log', 'dtlDeviceManager', 'dtlSpinner', 'dtlGoTo'];
 
-	function splashCtrl($log, deviceManager, dtlSpinner, dtlGoTo) {
+	function splashCtrl($log, dtlDeviceManager, dtlSpinner, dtlGoTo) {
 
 		//TODO [DB] Get all values from config/labels
 
@@ -47,12 +47,12 @@
 
 		function checkDevice() {
 			dtlSpinner.update(INIT_CHECK.DEVICE);
-			return deviceManager.checkDevice();
+			return dtlDeviceManager.checkDevice();
 		}
 
 		function checkBrowser () {
 			dtlSpinner.update(INIT_CHECK.BROWSER);
-			return deviceManager.checkUserAgent();
+			return dtlDeviceManager.checkUserAgent();
 		}
 
 	}

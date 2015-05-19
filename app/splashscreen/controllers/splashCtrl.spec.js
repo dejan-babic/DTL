@@ -1,16 +1,16 @@
 describe('splashCtrl', function() {
 
-	var $rootScope, $scope, $controller, splashCtrl, deviceManager, dtlSpinnerService;
+	var $rootScope, $scope, $controller, splashCtrl, dtlDeviceManager, dtlSpinnerService;
 
 	//noinspection JSUnresolvedFunction
 	beforeEach(module('dtl'));
 	//noinspection JSUnresolvedFunction
-	beforeEach(inject(function(_$rootScope_, _$controller_, _deviceManager_, _dtlSpinner_){
+	beforeEach(inject(function(_$rootScope_, _$controller_, _dtlDeviceManager_, _dtlSpinner_){
 
 		$rootScope = _$rootScope_;
 		$scope = $rootScope.$new();
 		$controller = _$controller_;
-		deviceManager = _deviceManager_;
+		dtlDeviceManager = _dtlDeviceManager_;
 		dtlSpinnerService = _dtlSpinner_;
 
 		dtlSpinnerService.init = function(){return true;};
