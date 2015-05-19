@@ -1,6 +1,6 @@
 describe('mainCtrl', function() {
 
-	var $rootScope, $scope, $controller;
+	var $rootScope, $scope, $controller, mainCtrl;
 
 	beforeEach(module('dtl'));
 

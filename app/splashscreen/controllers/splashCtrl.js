@@ -7,50 +7,54 @@
 	angular.module('dtl')
 		.controller('splashCtrl', splashCtrl);
 
-	splashCtrl.$inject = ['$log', 'deviceManager', 'dtlSpinner', 'goTo'];
+	splashCtrl.$inject = ['$log', 'deviceManager', 'dtlSpinner', 'dtlGoTo'];
 
-	function splashCtrl($log, deviceManager, dtlSpinner, goTo) {
+	function splashCtrl($log, deviceManager, dtlSpinner, dtlGoTo) {
 
 		//TODO [DB] Get all values from config/labels
 
 		var vm = this;
 
 		var INIT_CHECK = {
+			START: 'Preparing library',
 			DEVICE: 'Getting device info',
 			BROWSER: "Checking browser compatibility"
 		};
 
-		init();
+		vm.init = function() {
+			$log.debug("splashCtrl:init()");
+			dtlSpinner.start(INIT_CHECK.START);
+			//noinspection JSUnresolvedFunction
+			checkDevice()
+				.then(checkBrowser)
+				.then(wrapUpAndGoHome)
+				.catch(handleSystemCheckFail)
+				.finally(dtlSpinner.stop());
+		};
 
-		function checkDevice () {
-			dtlSpinner.start(INIT_CHECK.DEVICE);
+		vm.init();
+
+		function handleSystemCheckFail(reason) {
+			$log.debug("splashCtrl:handleSystemCheckFail()");
+			$log.debug("splashCtrl: " + reason);
+			//TODO [DB] Handle errors
+		}
+
+		function wrapUpAndGoHome() {
+			$log.debug("splashCtrl:wrapUpAndGoHome()");
+			dtlGoTo.home();
+		}
+
+		function checkDevice() {
+			dtlSpinner.update(INIT_CHECK.DEVICE);
 			return deviceManager.checkDevice();
 		}
 
 		function checkBrowser () {
 			dtlSpinner.update(INIT_CHECK.BROWSER);
-			return deviceManager.checkUserAgent()
+			return deviceManager.checkUserAgent();
 		}
 
-		function handleSystemCheckFail (reason) {
-			$log.debug("splashCtrl:handleSystemCheckFail()");
-			$log.debug("splashCtrl: " + reason);
-			dtlSpinner.stop();
-		}
-
-		function wrapUpAndGoHome () {
-			$log.debug("splashCtrl:wrapUpAndGoHome()");
-			dtlSpinner.stop();
-			goTo.home();
-		}
-
-		function init () {
-			$log.debug("splashCtrl:init()");
-			checkDevice()
-				.then(checkBrowser)
-				.then(wrapUpAndGoHome)
-				.catch(handleSystemCheckFail)
-		}
 	}
 
 })();
