@@ -6,7 +6,8 @@
 	 */
 	angular.module('dtl', [
 			'ngRoute',
-			'ng.deviceDetector'
+			'ng.deviceDetector',
+			'dtlSystemMessage'
 		])
 		.config(function ($routeProvider) {
 			$routeProvider.when('/Home', {
