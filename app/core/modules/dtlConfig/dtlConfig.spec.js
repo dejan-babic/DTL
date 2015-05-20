@@ -1,11 +1,12 @@
 describe('dtlConfig', function() {
 
-	var CONFIG;
+	var CONFIG, numberOfValues;
 
 	//noinspection JSUnresolvedFunction
 	beforeEach(module('dtlConfig'));
 	//noinspection JSUnresolvedFunction
 	beforeEach(inject(function(_CONFIG_) {
+		numberOfValues = 2;
 		CONFIG = _CONFIG_;
 	}));
 
@@ -19,7 +20,11 @@ describe('dtlConfig', function() {
 			expect(CONFIG.DEBUG).toBeDefined();
 		});
 
-		it('should have 1 properties', function() {
+		it('should have property DEBUG', function() {
+			expect(CONFIG.NO_SERVICE).toBeDefined();
+		});
+
+		it('should have ' + numberOfValues + ' properties', function() {
 			var count = 0;
 			for (var key in CONFIG) {
 				if (CONFIG.hasOwnProperty(key)) {
@@ -27,7 +32,7 @@ describe('dtlConfig', function() {
 				}
 			}
 			//noinspection JSCheckFunctionSignatures
-			expect(count).toEqual(1);
+			expect(count).toEqual(numberOfValues);
 		});
 
 	});
