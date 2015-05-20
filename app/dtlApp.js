@@ -7,7 +7,8 @@
 	angular.module('dtl', [
 			'ngRoute',
 			'ng.deviceDetector',
-			'dtlSystemMessage'
+			'dtlSystemMessage',
+			'dtlConfig'
 		])
 		.config(function ($routeProvider) {
 			$routeProvider.when('/Home', {
@@ -20,7 +21,7 @@
 			});
 			$routeProvider.otherwise({ redirectTo: '/Load' });
 		})
-		.config(function ($logProvider) {
-			$logProvider.debugEnabled(true);
+		.config(function ($logProvider, CONFIG) {
+			$logProvider.debugEnabled(CONFIG.DEBUG);
 		});
 })();
