@@ -2,8 +2,9 @@ describe('mainCtrl', function() {
 
 	var $rootScope, $scope, $controller, mainCtrl;
 
+	//noinspection JSUnresolvedFunction
 	beforeEach(module('dtl'));
-
+	//noinspection JSUnresolvedFunction
 	beforeEach(inject(function(_$rootScope_, _$controller_){
 
 		$rootScope = _$rootScope_;
