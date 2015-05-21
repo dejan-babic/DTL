@@ -29,7 +29,6 @@
 				.then(checkBrowser)
 				.then(wrapUpAndGoHome)
 				.catch(handleSystemCheckFail)
-				.finally(dtlSpinner.stop());
 		};
 
 		vm.init();
