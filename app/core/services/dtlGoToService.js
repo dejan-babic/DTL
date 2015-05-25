@@ -12,12 +12,14 @@
 	function dtlGoTo($log, $location) {
 
 		var ROUTES = {
-			HOME: 'Home'
+			HOME: 'Home',
+			LOAD: 'Load'
 		};
 
 		return {
 			home: home,
-			somewhere: somewhere
+			load: load,
+			here: here
 		};
 
 		function home() {
@@ -25,7 +27,12 @@
 			$location.path(ROUTES.HOME);
 		}
 
-		function somewhere(route) {
+		function load() {
+			$log.debug('dtlGoTo:load()');
+			$location.path(ROUTES.LOAD);
+		}
+
+		function here(route) {
 			$log.debug('dtlGoTo:somewhere()');
 			$location.path(route);
 		}

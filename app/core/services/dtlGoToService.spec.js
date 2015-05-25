@@ -26,8 +26,14 @@ describe('dtlGoToService', function() {
 		expect($location.path()).toEqual(ROUTES.HOME);
 	});
 
-	it('should set $location.path to any given route when somewhere() is called', function() {
-		dtlGoTo.somewhere(ROUTES.FAKE);
+	it('should set $location.path to ' + ROUTES.LOAD + ' when load() is called', function() {
+		dtlGoTo.load();
+		//noinspection JSCheckFunctionSignatures
+		expect($location.path()).toEqual(ROUTES.LOAD);
+	});
+
+	it('should set $location.path to any given route when here() is called', function() {
+		dtlGoTo.here(ROUTES.FAKE);
 		//noinspection JSCheckFunctionSignatures
 		expect($location.path()).toEqual(ROUTES.FAKE);
 	});
