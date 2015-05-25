@@ -23,7 +23,8 @@ module.exports = function(config) {
 	  'libs/ng-device-detector/ng-device-detector.js',
 	  'app/*js',
 	  'app/**/**/*js',
-	  'app/dtlSpinner/templates/directives/dtlSpinner.html'
+	  'app/dtlSpinner/templates/directives/dtlSpinner.html',
+	  'app/dtlBookHolder/templates/directives/dtlBookHolder.html'
     ],
 
 
@@ -35,7 +36,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-	    'app/dtlSpinner/templates/directives/dtlSpinner.html': ['ng-html2js']
+	    'app/dtlSpinner/templates/directives/dtlSpinner.html': ['ng-html2js'],
+	    'app/dtlBookHolder/templates/directives/dtlBookHolder.html': ['ng-html2js']
     },
 
 

@@ -1,3 +1,3 @@
-<div>
-	<div ng-repeat="book in home.books">{{ book.title}}</div><br>
+<div class="row">
+	<dtl-book-holder class="col-sm-4 col-md-3 col-lg-2" ng-repeat="book in home.books" book="book"></dtl-book-holder>
 </div>
