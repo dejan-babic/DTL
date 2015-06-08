@@ -7,9 +7,9 @@
 	angular.module('dtl')
 		.controller('splashCtrl', splashCtrl);
 
-	splashCtrl.$inject = ['$log', 'dtlDeviceManager', 'dtlSpinner', 'dtlGoTo'];
+	splashCtrl.$inject = ['$log', 'dtlDeviceManager', 'dtlSpinner', 'dtlGoTo', 'dtlState'];
 
-	function splashCtrl($log, dtlDeviceManager, dtlSpinner, dtlGoTo) {
+	function splashCtrl($log, dtlDeviceManager, dtlSpinner, dtlGoTo, dtlState) {
 
 		//TODO [DB] Get all values from config/labels
 
@@ -41,6 +41,7 @@
 
 		function wrapUpAndGoHome() {
 			$log.debug("splashCtrl:wrapUpAndGoHome()");
+			dtlState.setInitialized();
 			dtlGoTo.home();
 		}
 
