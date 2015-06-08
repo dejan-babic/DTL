@@ -6,7 +6,7 @@ describe('dtlConfig', function() {
 	beforeEach(module('dtlConfig'));
 	//noinspection JSUnresolvedFunction
 	beforeEach(inject(function(_CONFIG_) {
-		numberOfValues = 2;
+		numberOfValues = 3;
 		CONFIG = _CONFIG_;
 	}));
 
@@ -22,6 +22,10 @@ describe('dtlConfig', function() {
 
 		it('should have property DEBUG', function() {
 			expect(CONFIG.NO_SERVICE).toBeDefined();
+		});
+
+		it('should have property DEBUG', function() {
+			expect(CONFIG.IMG_ALT).toBeDefined();
 		});
 
 		it('should have ' + numberOfValues + ' properties', function() {
