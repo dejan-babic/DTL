@@ -4,16 +4,30 @@
 	angular.module('dtl')
 		.directive('dtlBookHolder', dtlBookHolder);
 
-	dtlBookHolder.$inject = ['$log'];
+	dtlBookHolder.$inject = [];
 
-	function dtlBookHolder($log) {
+	function dtlBookHolder() {
+
 		return {
 			restrict: 'E',
 			templateUrl: 'app/dtlBookHolder/templates/directives/dtlBookHolder.html',
 			replace: true,
 			scope: {
-				book: '='
+				book: '=',
+				imgAlt: '='
+			},
+			link: function(scope, element) {
+				if(scope.book && scope.imgAlt) {
+					scope.book = thumbnailChecker(scope.book, scope.imgAlt);
+				}
 			}
+		};
+
+		function thumbnailChecker(book, alt) {
+			if(!book.thumbnail) {
+				book.thumbnail = alt;
+			}
+			return book;
 		}
 	}
 

@@ -1,3 +1,8 @@
-<div class="">
-	<img class="img-responsive" ng-src="{{ book.thumbnail}}" alt=""/>
+<div class="bookHolder" title="{{ book.title }}">
+	<div class="imageHolder">
+		<img dtl-book-lazy-load class="" src="" ng-src="{{ book.thumbnail }}" alt="Loading"/>
+	</div>
+	<div class="titleHolder">
+		<span class="label label-default">{{ book.title }}</span>
+	</div>
 </div>

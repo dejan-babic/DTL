@@ -1,3 +1,5 @@
 <div class="row">
-	<dtl-book-holder class="col-sm-4 col-md-3 col-lg-2" ng-repeat="book in home.books" book="book"></dtl-book-holder>
+	<div class="col-sm-12 col-md-3 col-lg-1 padding8" ng-repeat="book in home.books">
+		<dtl-book-holder book="book" img-alt="home.imgAlt"></dtl-book-holder>
+	</div>
 </div>
