@@ -27,6 +27,9 @@
 			$rootScope.$on("$routeChangeSuccess", function(event, next, current) {
 				dtlSpinner.stop();
 			});
+			$rootScope.$on("$routeChangeError", function(event, next, current) {
+				dtlSpinner.stop();
+			});
 
 		}
 
