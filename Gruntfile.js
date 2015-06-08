@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 		copy: {
 			buildNoService: {
 				files: [
-					{ expand: true, cwd: '', src: ['app/**', 'assets/**'], dest: 'dist/noService' },
+					{ expand: true, cwd: '', src: ['app/**', '!app/**/*.spec.js', 'assets/**', 'data/**'], dest: 'dist/noService' },
 					{ expand: true, cwd: 'libs', src: ['angular/angular.js'], dest: 'dist/noService/libs' },
 					{ expand: true, cwd: 'libs', src: ['angular-route/angular-route.js'], dest: 'dist/noService/libs' },
 					{ expand: true, cwd: 'libs', src: ['jquery/dist/jquery.js'], dest: 'dist/noService/libs' },
