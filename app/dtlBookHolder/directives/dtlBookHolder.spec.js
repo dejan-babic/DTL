@@ -8,7 +8,7 @@ describe('dtlBookHolder', function(){
 	beforeEach(module('app/dtlSpinner/templates/directives/dtlSpinner.html'));
 	//noinspection JSUnresolvedFunction
 	beforeEach(inject(function(_$rootScope_, _$compile_){
-
+		//TODO [DB] compile template
 /*		$rootScope = _$rootScope_;
 		$scope = $rootScope.$new();
 		$compile = _$compile_;
@@ -19,6 +19,7 @@ describe('dtlBookHolder', function(){
 	}));
 
 	it('should', function() {
+		//TODO [DB] test functionality
 		//noinspection JSCheckFunctionSignatures
 		//expect(element.find('#dtlSpinner').length).toEqual(1);
 	});

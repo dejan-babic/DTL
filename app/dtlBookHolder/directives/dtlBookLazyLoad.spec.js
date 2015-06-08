@@ -1,3 +1,1 @@
-/**
- * Created by JoDe on 27.5.15..
- */
+//TODO [DB] Write whole test
