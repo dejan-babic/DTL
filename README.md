@@ -14,9 +14,6 @@ Library UI used to manage the companies inhouse books
 
 ## Installation
 
-
-
-
 **Node & npm:**
 
 1. Download node
@@ -52,21 +49,24 @@ to clone the repository to your local machine
 **Dependencies:**
 
 Run:
-```npm install
+```
+npm install
 ```
 to install all the app dependencies
 
 **Test:**
 
 Run:
-```npm test
+```
+npm test
 ```
 to start karma test runner
 
 **Build:**
 
 Run:
-```grunt noService
+```
+grunt noService
 ```
 to make a distribution that  you can host on any web server
 
