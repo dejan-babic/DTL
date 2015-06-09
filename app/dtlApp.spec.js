@@ -22,7 +22,7 @@ describe('dtlApp', function() {
 
 		it('should be mapped to the homeCtrl', function () {
 			//noinspection JSCheckFunctionSignatures
-			//expect($route.routes['/Home'].controller).toBe('homeCtrl');
+			expect($route.routes['/Home'].controller).toBe('homeCtrl');
 		});
 
 		it('should use the home.html as the template', function () {

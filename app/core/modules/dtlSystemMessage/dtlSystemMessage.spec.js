@@ -1,11 +1,12 @@
 describe('dtlSystemMessage', function() {
 
-	var SYSTEM_MESSAGE;
+	var SYSTEM_MESSAGE, numberOfValues;
 
 	//noinspection JSUnresolvedFunction
 	beforeEach(module('dtlSystemMessage'));
 	//noinspection JSUnresolvedFunction
 	beforeEach(inject(function(_SYSTEM_MESSAGE_){
+		numberOfValues = 4;
 		SYSTEM_MESSAGE = _SYSTEM_MESSAGE_;
 	}));
 
@@ -27,7 +28,11 @@ describe('dtlSystemMessage', function() {
 			expect(SYSTEM_MESSAGE.BROWSER_NOT_SUPPORTED).toBeDefined();
 		});
 
-		it('should have 3 properties', function() {
+		it('should have property DEFAULT_SPINNER_MESSAGE', function() {
+			expect(SYSTEM_MESSAGE.DEFAULT_SPINNER_MESSAGE).toBeDefined();
+		});
+
+		it('should have ' + numberOfValues + ' properties', function() {
 			var count = 0;
 			for (var key in SYSTEM_MESSAGE) {
 				if (SYSTEM_MESSAGE.hasOwnProperty(key)) {
@@ -35,7 +40,7 @@ describe('dtlSystemMessage', function() {
 				}
 			}
 			//noinspection JSCheckFunctionSignatures
-			expect(count).toEqual(3);
+			expect(count).toEqual(numberOfValues);
 		});
 
 	});

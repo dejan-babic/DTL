@@ -7,12 +7,13 @@
 	angular.module('dtl')
 		.factory('dtlSpinner', dtlSpinner);
 
-	dtlSpinner.$inject = ['$log'];
+	dtlSpinner.$inject = ['$log', 'SYSTEM_MESSAGE'];
 
-	function dtlSpinner($log) {
+	function dtlSpinner($log, SYSTEM_MESSAGE) {
 
 		var container;
 		var message = '';
+		var defaultMessage = SYSTEM_MESSAGE.DEFAULT_SPINNER_MESSAGE;
 
 		return {
 			init: init,
@@ -24,13 +25,13 @@
 
 		function start(msg) {
 			$log.debug('dtlSpinner:start()');
-			message = msg;
+			message = validateMessage(msg);
 			container.fadeIn('slow');
 		}
 
 		function update(msg) {
 			$log.debug('dtlSpinner:update()');
-			message = msg;
+			message = validateMessage(msg);
 		}
 
 		function stop() {
@@ -41,6 +42,10 @@
 		function getMessage() {
 			$log.debug('dtlSpinner:getMessage()');
 			return message;
+		}
+
+		function validateMessage(msg) {
+			return angular.isString(msg) ? msg : defaultMessage;
 		}
 
 		function init(element) {

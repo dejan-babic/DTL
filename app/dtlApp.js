@@ -8,11 +8,19 @@
 			'ngRoute',
 			'ng.deviceDetector',
 			'dtlSystemMessage',
-			'dtlConfig'
+			'dtlConfig',
+			'dtlServices'
 		])
 		.config(function ($routeProvider) {
 			$routeProvider.when('/Home', {
-				templateUrl: 'app/homepage/templates/views/home.html'
+				templateUrl: 'app/homepage/templates/views/home.html',
+				controller: 'homeCtrl',
+				controllerAs: 'home',
+				resolve: {
+					books: function(dtlBridge) {
+						return dtlBridge.getLibraryBooks();
+					}
+				}
 			});
 			$routeProvider.when('/Load', {
 				templateUrl: 'app/splashscreen/templates/views/splash.html',
