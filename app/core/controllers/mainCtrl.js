@@ -24,12 +24,12 @@
 			$rootScope.$on("$routeChangeStart", function(event, next, current) {
 				dtlSpinner.start();
 			});
-			$rootScope.$on("$routeChangeSuccess", function(event, next, current) {
+/*			$rootScope.$on("$routeChangeSuccess", function(event, next, current) {
 				dtlSpinner.stop();
 			});
 			$rootScope.$on("$routeChangeError", function(event, next, current) {
 				dtlSpinner.stop();
-			});
+			});*/
 
 		}
 
