@@ -27,6 +27,11 @@
 				controller: 'splashCtrl',
 				controllerAs: 'splash'
 			});
+			$routeProvider.when('/Error', {
+				templateUrl: 'app/errorPage/templates/views/error.html',
+				controller: 'errorCtrl',
+				controllerAs: 'error'
+			});
 			$routeProvider.otherwise({ redirectTo: '/Load' });
 		})
 		.config(function ($logProvider, CONFIG) {
