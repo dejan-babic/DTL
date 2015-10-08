@@ -27,8 +27,6 @@
 		</div>
 	</div>
 </nav>
-<div class="row">
-	<div class="col-sm-12 col-md-3 col-lg-1 padding8" ng-repeat="book in home.books | filter:searchText">
-		<dtl-book-holder book="book" img-alt="home.imgAlt"></dtl-book-holder>
-	</div>
+<div class="flex-container well">
+	<dtl-book-holder book="book" img-alt="home.imgAlt" ng-repeat="book in home.books | filter:searchText"></dtl-book-holder>
 </div>
