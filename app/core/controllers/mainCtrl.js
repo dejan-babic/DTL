@@ -20,7 +20,7 @@
 		vm.init();
 
 		function registerListeners() {
-
+			//TODO [DB] Figure out the spinner stuff
 			$rootScope.$on("$routeChangeStart", function(event, next, current) {
 				dtlSpinner.start();
 			});
