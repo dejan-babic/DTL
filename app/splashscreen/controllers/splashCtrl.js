@@ -7,9 +7,9 @@
 	angular.module('dtl')
 		.controller('splashCtrl', splashCtrl);
 
-	splashCtrl.$inject = ['$log', 'dtlDeviceManager', 'dtlSpinner', 'dtlGoTo', 'dtlState'];
+	splashCtrl.$inject = ['$log', 'dtlDeviceManager', 'dtlSpinner', 'dtlGoTo', 'dtlState', 'dtlBridge'];
 
-	function splashCtrl($log, dtlDeviceManager, dtlSpinner, dtlGoTo, dtlState) {
+	function splashCtrl($log, dtlDeviceManager, dtlSpinner, dtlGoTo, dtlState, dtlBridge) {
 
 		//TODO [DB] Get all values from config/labels
 
@@ -18,7 +18,8 @@
 		var INIT_CHECK = {
 			START: 'Preparing library',
 			DEVICE: 'Getting device info',
-			BROWSER: "Checking browser compatibility"
+			BROWSER: "Checking browser compatibility",
+			SERVICE: "Trying to connect with services"
 		};
 
 		vm.init = function() {
@@ -27,6 +28,7 @@
 			//noinspection JSUnresolvedFunction
 			checkDevice()
 				.then(checkBrowser)
+				.then(checkServices)
 				.then(wrapUpAndGoHome)
 				.catch(handleSystemCheckFail)
 		};
@@ -36,7 +38,7 @@
 		function handleSystemCheckFail(reason) {
 			$log.debug("splashCtrl:handleSystemCheckFail()");
 			$log.debug("splashCtrl: " + reason);
-			//TODO [DB] Handle errors
+			dtlGoTo.here('Error');
 		}
 
 		function wrapUpAndGoHome() {
@@ -50,9 +52,14 @@
 			return dtlDeviceManager.checkDevice();
 		}
 
-		function checkBrowser () {
+		function checkBrowser() {
 			dtlSpinner.update(INIT_CHECK.BROWSER);
 			return dtlDeviceManager.checkUserAgent();
+		}
+
+		function checkServices() {
+			dtlSpinner.update(INIT_CHECK.SERVICE);
+			return dtlBridge.checkServices();
 		}
 
 	}

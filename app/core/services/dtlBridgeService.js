@@ -12,13 +12,27 @@
 	function dtlBridge($log, $http, $q, CONFIG, SERVICES) {
 
 		return {
-			getLibraryBooks: getLibraryBooks
+			getLibraryBooks: getLibraryBooks,
+			checkServices: checkServices
 		};
 
 		function getLibraryBooks() {
 			$log.debug('dtlBridge:getLibraryBooks()');
-			var target = CONFIG.NO_SERVICE ? SERVICES.STORED_BOOKS_DUMMY : SERVICES.STORED_BOOKS;
+			var target = CONFIG.NO_SERVICE ? SERVICES.DUMMY.STORED_BOOKS : SERVICES.LIVE.STORED_BOOKS;
 			return httpGet(target);
+		}
+
+		function checkServices() {
+			$log.debug('dtlBridge:checkServices()');
+			var serviceChecks = [];
+
+			for (var key in SERVICES.LIVE) {
+				if (SERVICES.LIVE.hasOwnProperty(key)) {
+					serviceChecks.push(httpGet(SERVICES.LIVE.key));
+				}
+			}
+
+			return $q.all(serviceChecks);
 		}
 
 		function httpGet(url) {
