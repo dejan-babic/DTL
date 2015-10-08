@@ -6,7 +6,11 @@
 	 */
 	angular.module('dtlServices', [])
 		.constant("SERVICES", {
-			STORED_BOOKS: 'some url',
-			STORED_BOOKS_DUMMY: 'data/booksArray.json'
+			LIVE: {
+				STORED_BOOKS: 'http://example.com/books'
+			},
+			DUMMY: {
+				STORED_BOOKS: 'data/booksArray.json'
+			}
 		});
 })();
