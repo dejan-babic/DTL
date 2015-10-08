@@ -14,6 +14,8 @@
 		var container;
 		var message = '';
 		var defaultMessage = SYSTEM_MESSAGE.DEFAULT_SPINNER_MESSAGE;
+		var initialized = false;
+		var instance = false;
 
 		return {
 			init: init,
@@ -26,7 +28,10 @@
 		function start(msg) {
 			$log.debug('dtlSpinner:start()');
 			message = validateMessage(msg);
-			container.fadeIn('slow');
+			if (!instance && initialized) {
+				container.fadeIn('slow');
+				instance = true;
+			}
 		}
 
 		function update(msg) {
@@ -36,7 +41,10 @@
 
 		function stop() {
 			$log.debug('dtlSpinner:stop()');
-			container.fadeOut('slow');
+			if (initialized) {
+				container.fadeOut('slow');
+			}
+			instance = false;
 		}
 
 		function getMessage() {
@@ -59,6 +67,7 @@
 			} else {
 				initSuccess = true;
 			}
+			initialized = initSuccess;
 			return initSuccess;
 		}
 	}
