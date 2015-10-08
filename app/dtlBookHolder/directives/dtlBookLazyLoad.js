@@ -19,7 +19,7 @@
 		};
 
 		function showImage(el) {
-			el.fadeIn('slow');
+			el.delay(400).fadeIn('slow', 'swing');
 		}
 	}
 
